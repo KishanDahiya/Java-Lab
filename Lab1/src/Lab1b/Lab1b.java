@@ -63,7 +63,7 @@ public class Lab1b {
 	//Method Overloading
 	public void display() {
 		System.out.println("\n-----Student Details-----");
-		System.out.println("Name :"+this.name);
+		System.out.print ("Name :"+this.name);
 		System.out.println("USN :"+this.usn);
 		System.out.println("Address :"+this.add);
 		while(bool) {
