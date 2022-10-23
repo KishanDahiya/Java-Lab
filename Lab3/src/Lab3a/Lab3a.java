@@ -10,7 +10,7 @@ public class Lab3a {
 	public void getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url="jdbc:mysql://127.0.0.1:3306/mysql";
+			String url="jdbc:mysql://127.0.0.1:3306/javalab";
 			String username="root";
 			String password="1506";
 			con=DriverManager.getConnection(url,username,password);
@@ -24,7 +24,7 @@ public class Lab3a {
 	
 	public void createTable(String Tablename) {
 		try {
-			String query = "create table "+Tablename+" (usn varchar(20) , name varchar(30) , address varchar(30) , dob varchar(10))";
+			String query = "create table "+Tablename+" (usn varchar(20) , name varchar(30) , address varchar(30))";
 			st.executeUpdate(query);
 		}catch(SQLException e) {
 			System.out.println(e);
@@ -33,9 +33,9 @@ public class Lab3a {
 		}
 	}
 	
-	public void insert(String USN, String Name , String Address , String DOB) {
+	public void insert(String USN, String Name , String Address) {
 		try {
-			String query1 = "insert into student values('"+USN+"','"+Name+"','"+Address+"','"+DOB+"')";
+			String query1 = "insert into student values('"+USN+"','"+Name+"','"+Address+"')";
 			int output = st.executeUpdate(query1);
 			System.out.println(output);
 		}catch(SQLException e) {
@@ -65,8 +65,8 @@ public class Lab3a {
 			ResultSet R = st.executeQuery(query);
 			
 			while(R.next()) {
-				System.out.println(R.getString(1)+"\t\t"+R.getString(2)+
-						"\t\t"+R.getString(3)+"\t\t"+R.getString(4));
+				System.out.println(R.getString(1)+"\t"+R.getString(2)+
+						"\t"+R.getString(3));
 			}
 		}catch(SQLException e) {
 			System.out.println(e);
@@ -112,16 +112,14 @@ public class Lab3a {
 				int ch = sc.nextInt();
 				
 				if(ch==1) {
-					String USN,Name,Address,DOB;
+					String USN,Name,Address;
 					System.out.println("Enter USN : ");
 					USN = sc.next();
 					System.out.println("Enter Name : ");
 					Name = sc.next();
 					System.out.println("Enter Address : ");
 					Address = sc.next();
-					System.out.println("Enter DOB : ");
-					DOB = sc.next();
-					s1.insert(USN, Name, Address, DOB);
+					s1.insert(USN, Name, Address);
 				}
 				
 				if(ch==2) {
@@ -133,7 +131,7 @@ public class Lab3a {
 					s1.update(USN, new_address);
 				}
 				if(ch==3) {
-					System.out.println("USN\t\tName\t\tAddress\t\t\tDOB");
+					System.out.println("USN\t\tName\t\tAddress");
 					s1.display();
 				}
 				if(ch==4) {
