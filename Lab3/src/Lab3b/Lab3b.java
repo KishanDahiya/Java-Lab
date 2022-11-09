@@ -131,7 +131,7 @@ public class Lab3b {
 				obj.update(name,usn);
 			}
 			else if(ch == 4) {
-				System.out.println("Enter details where you wanna update\nUSN :");
+				System.out.println("Enter usn which u wanna delete\nUSN :");
 				usn=sc.next();
 				obj.delete(usn);
 			}
