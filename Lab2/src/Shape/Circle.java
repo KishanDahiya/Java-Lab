@@ -17,6 +17,6 @@ public class Circle {
 	public void area()
 	{
 		ans = (float) (3.14 * this.radius * this.radius);
-		System.out.println("The Perimeter of a Square is : "+ans);
+		System.out.println("The Area of a Square is : "+ans);
 	}
 }
