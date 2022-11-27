@@ -16,7 +16,7 @@ public class Lab4a extends HttpServlet {
 		double price=235.245;
 		double changer=(double)Math.random()*3;
 		PrintWriter out=response.getWriter();
-		double change_price=price+1*changer;
+		double change_price=price+ changer;
 		out.println  ("<html>"
 				+"<body align=\"center\" bgColor=\"grey\">"
 				+ "<h1>Stock Market<br>"
